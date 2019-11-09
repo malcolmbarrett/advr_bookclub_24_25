@@ -1,0 +1,132 @@
+---
+title: "Advanced R Bookclub"
+subtitle: "Chapters 24-25"
+author: "Malcolm Barrett"
+date: "Nov 9, 2019"
+output:
+  xaringan::moon_reader:
+    css: null
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/565916198b0be51bf88b36f94b80c7ea67cafe7c/7f70b/cover.png)
+
+```{r setup, echo=FALSE}
+options(htmltools.dir.version = FALSE)
+htmltools::includeCSS("https://raw.githubusercontent.com/malcolmbarrett/kakashi/master/kakashi.css")
+```
+
+---
+
+class: inverse, center, middle
+
+# **Chapter 24: Improving Performance**
+
+---
+
+class: inverse, center, middle
+
+## We should forget about small efficiencies, say about 97% of the time; *premature optimization is the root of all evil.* Yet we should not pass up our opportunities at that critical 3%.
+## &mdash;Donald Knuth
+
+---
+
+class: inverse, center, middle
+
+## *I recommend that you keep a record of everything you try, even the failures.* If a similar problem occurs in the future, it’ll be useful to see everything you’ve tried. To do this *I recommend RMarkdown, which makes it easy to intermingle code with detailed comments and notes*.
+## &mdash;pg 533
+
+
+---
+
+class: inverse, center, middle
+
+# Strategies to avoid wrong results or wasted time
+
+1. Checking for existing solutions
+2. Doing as little as possible
+3. Vectorize
+4. Avoid copies
+
+---
+
+class: inverse, center, middle
+
+## *how have you sped up your code?*
+
+---
+
+class: inverse, center, middle
+
+# **Chapter 25: Rewriting R code in C++**
+
+---
+
+class: inverse, center, middle
+
+## Sometimes R code just isn’t fast enough. You’ve used profiling to figure out where your bottlenecks are, and you’ve done everything you can in R, but your code still isn’t fast enough. In this chapter you’ll learn how to improve performance by rewriting key functions in C++. *This magic comes by way of the Rcpp package.*
+## &mdash;pg 547
+
+---
+
+class: inverse, center, middle
+
+# Typical use cases
+
+1. Loops where you need earlier results
+2. Recusive functions
+3. Calling functions millions of times
+4. Advanced data structures (STL)
+
+
+---
+
+class: inverse, center, middle
+
+# Setting up a C++ compiler
+
+1. Windows: download Rtools
+2. Mac: http://bit.ly/mac_rcpp
+3. Linux: `sudo apt-get install r-base-dev`
+
+---
+
+class: inverse, center, middle
+
+## *Do you use Rcpp/C++ currently? What other resources do you recommend for learning?*
+
+---
+
+class: inverse, center, middle
+
+# Resources I've liked:
+
+1. This chapter. Try the exercises!
+2. Accelerated C++
+3. C++ Primer
+4. The Rcpp blog
+
+---
+
+class: inverse, center, middle
+
+## *What are some common differences between R and C++?*
+
+---
+
+
+class: inverse, middle
+
+## Rcpp in packages
+
+```{r, eval = FALSE}
+library(usethis)
+use_rcpp()
+use_rcpp_armadillo()
+use_rcpp_eigen()
+```
